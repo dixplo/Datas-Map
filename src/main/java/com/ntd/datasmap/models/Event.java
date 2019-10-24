@@ -2,18 +2,13 @@ package com.ntd.datasmap.models;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
-
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -27,9 +22,9 @@ import com.ntd.datasmap.repositories.EventRepository;
 public class Event {
 
 	
-	@Autowired
+	/*@Autowired
 	private EventRepository eventRepo;
-	
+	*/
 	// fields
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -40,27 +35,9 @@ public class Event {
 	
 	
 	 @ManyToOne
-	 @JoinColumn
 	 private Type type;
-	
 	 
-	 
-/* A EXPLOITER https://www.youtube.com/watch?v=_Jnu_jHfQbM
-	private List<Event> getAllEvents(){
-		List<Event> events = new ArrayList<>();
-		eventRepo.findAll()
-		.forEach(events::add);
-		return events;
-	}
-*/
-	
-	 
-	 
-	 /* Un event a un a plusieurs types  REMETTRE POUR DIMINUER LES BUG*/
-	//@OneToMany(cascade = CascadeType.ALL,mappedBy = "event")
-	//private List<Type> type;
-	
-	
+
 	// Controller
 	public Event(String name, String description) {
 		this.name = name;
@@ -69,10 +46,7 @@ public class Event {
 		// Recupération de la date actuelle 
 		Date actuelle = new Date();
 		DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-		 String dat = dateFormat.format(actuelle);
-		
-		/*Declaration de l'arrayList des types */
-		type=new ArrayList<>();
+		String date = dateFormat.format(actuelle);
 	}
 
 	
