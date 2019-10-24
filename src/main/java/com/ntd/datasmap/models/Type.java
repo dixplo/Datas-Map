@@ -1,9 +1,16 @@
 package com.ntd.datasmap.models;
 
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+
+
 
 @Entity
 public class Type {
@@ -17,6 +24,10 @@ public class Type {
 	private String name;
 	private String description;
 	
+	
+	@OneToMany(mappedBy = "Type", cascade = CascadeType.ALL)
+	private Set<Event> event;
+
 	
 	// Controller
 	public Type(String name, String description) {

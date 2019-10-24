@@ -11,7 +11,13 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.ntd.datasmap.repositories.EventRepository;
 
 
 
@@ -20,6 +26,10 @@ import javax.persistence.OneToMany;
 @Entity
 public class Event {
 
+	
+	@Autowired
+	private EventRepository eventRepo;
+	
 	// fields
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -28,14 +38,28 @@ public class Event {
 	private String description;
 	private Date date;
 	
-	/*@OneToMany(cascade = CascadeType.ALL,mappedBy = "event")
-	private List<Group> groups;
-	*/
 	
-	/* Un event a un a plusieurs types */
-	/*@OneToMany(cascade = CascadeType.ALL,mappedBy = "type")
-	private List<Type> type;
-	*/
+	 @ManyToOne
+	 @JoinColumn
+	 private Type type;
+	
+	 
+	 
+/* A EXPLOITER https://www.youtube.com/watch?v=_Jnu_jHfQbM
+	private List<Event> getAllEvents(){
+		List<Event> events = new ArrayList<>();
+		eventRepo.findAll()
+		.forEach(events::add);
+		return events;
+	}
+*/
+	
+	 
+	 
+	 /* Un event a un a plusieurs types  REMETTRE POUR DIMINUER LES BUG*/
+	//@OneToMany(cascade = CascadeType.ALL,mappedBy = "event")
+	//private List<Type> type;
+	
 	
 	// Controller
 	public Event(String name, String description) {
@@ -48,7 +72,7 @@ public class Event {
 		 String dat = dateFormat.format(actuelle);
 		
 		/*Declaration de l'arrayList des types */
-		//type=new ArrayList<>();
+		type=new ArrayList<>();
 	}
 
 	
