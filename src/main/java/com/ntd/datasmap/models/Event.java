@@ -1,9 +1,12 @@
 package com.ntd.datasmap.models;
 
+import java.time.LocalDateTime;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 /*Utilisation de EventRepository pour créer de la persistence*/
 
@@ -16,7 +19,12 @@ public class Event {
 	private int id;
 	private String name;
 	private String description;
-	private int date;
+	private LocalDateTime date;
+	
+
+	 @ManyToOne
+	 private Type type;
+	
 	
 	// Controller
 	public Event(String name, String description) {
@@ -49,19 +57,18 @@ public class Event {
 	}
 
 
-
-
-	public int getDate() {
+	public LocalDateTime getDate() {
 		return date;
 	}
 
 
-
-
-	public void setDate(int date) {
+	public void setDate(LocalDateTime date) {
 		this.date = date;
 	}
 }
+
+
+
 
 
 

@@ -1,9 +1,12 @@
 package com.ntd.datasmap.models;
 
+import java.util.Collection;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Type {
@@ -16,6 +19,10 @@ public class Type {
 	private int id;
 	private String name;
 	private String description;
+	
+	
+	@OneToMany
+	private Collection<Type> types;
 	
 	
 	// Controller
