@@ -45,10 +45,7 @@ public class TestController {
 	/* ATTENTION : L'annotation RequestBody sera necessaire en utilisant un moteur de template */
 	@PostMapping("/submit")
 	public String inscription(User user) {
-		/*Afficher liste user*/
-		/*List<User> users=repo.findAll();*/
-	
-		/* Enregistrer user */
+
 		repo.save(user);
 		return("dash");
 	}

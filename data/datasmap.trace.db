@@ -1068,3 +1068,13 @@ Caused by: java.lang.IllegalStateException: The file is locked: nio:/home/damien
 	at org.h2.mvstore.FileStore.open(FileStore.java:172)
 	at org.h2.mvstore.MVStore.<init>(MVStore.java:390)
 	... 65 more
+2019-11-05 11:42:50 jdbc[14]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Erreur de syntaxe dans l'instruction SQL "DROP TABLE AUTH_ROLE
+DROP[*] TABLE AUTH_USER
+DROP TABLE AUTH_USER_ROLE"
+Syntax error in SQL statement "DROP TABLE AUTH_ROLE
+DROP[*] TABLE AUTH_USER
+DROP TABLE AUTH_USER_ROLE"; SQL statement:
+DROP TABLE AUTH_ROLE
+DROP TABLE AUTH_USER
+DROP TABLE AUTH_USER_ROLE [42000-199]

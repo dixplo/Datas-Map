@@ -1,6 +1,6 @@
 package com.ntd.datasmap.models;
 
-import java.util.Collection;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -20,9 +20,8 @@ public class Type {
 	private String name;
 	private String description;
 	
-	
-	@OneToMany
-	private Collection<Type> types;
+	@OneToMany(mappedBy="ty")
+	private List<Event>Events;
 	
 	
 	// Controller

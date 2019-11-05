@@ -21,10 +21,12 @@ public class Event {
 	private String description;
 	private LocalDateTime date;
 	
-
-	 @ManyToOne
-	 private Type type;
 	
+	@ManyToOne
+	private Type ty;
+	
+	@ManyToOne
+	private Place pl;
 	
 	// Controller
 	public Event(String name, String description) {
