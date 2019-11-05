@@ -1,47 +1,25 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
-<head>
-<title>Registration Form</title>
-<!-- link rel="stylesheet" type="text/css" th:href="@{/css/registration.css}" /-->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</head>
-<body style="background-color: #ededed;">
-	<div style="background-color: #337ab7; height: 50px;"></div>
-	<div class="container-fluid" style="margin-top: 30px;">
+<html lang="en">
+  <head>
+  <meta charset="utf-8">
+    <title>َDatasMAP by NTD</title>
+    <link rel="stylesheet" href="/css/style.css">
+  </head>
+  <body>
 
-		<div class="row col-lg-4 col-lg-offset-4" style="margin-top: 40px; background-color: #fff; padding: 20px; border: solid 1px #ddd;">
-			<form autocomplete="off" action="#" th:action="@{/register}" th:object="${user}" method="post" class="form-signin" role="form">
-				<h3 class="form-signin-heading">Registration Form</h3>
-				<div class="form-group">
-					<div class="">
-						<input type="text" th:field="*{name}" placeholder="Name" class="form-control" />
-					</div>
-				</div>
-				<div class="form-group">
-					<div class="">
-						<input type="text" th:field="*{lastName}" placeholder="Last Name" class="form-control" />
-					</div>
-				</div>
-				<div class="form-group">
-					<div class="">
-						<input type="text" th:field="*{email}" placeholder="Email" class="form-control" />
-					</div>
-				</div>
-				<div class="form-group">
-					<div class="">
-						<input type="password" th:field="*{password}" placeholder="Password" class="form-control" />
-					</div>
-				</div>
-				<div class="form-group">
-					<div class="">
-						<button type="submit" class="btn btn-primary btn-block">Register User</button>
-					</div>
-				</div>
-				<span th:utext="${successMessage}"></span>
-			</form>
-		</div>
-	</div>
-</body>
+<form class="box" action="/test/submit" method="POST">
+  <h1>DatasMAP Register</h1>
+  <input type="text" name="userName" placeholder="Username">
+  <input type="text" name="email" placeholder="Email">
+  <input type="password" name="password" placeholder="Password">
+  <!-- 
+  <input type="password" name="" placeholder="Password verification">
+   -->
+  <input type="submit" name="submit" value="Register">
+  <a href="/test/index">Go to DatasMAP without an account</a> <br> or <br>
+  <a href="/test/dash">Login</a>
+</form>
+
+
+  </body>
 </html>

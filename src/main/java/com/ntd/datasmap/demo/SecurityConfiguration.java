@@ -1,4 +1,6 @@
+/*
 package com.ntd.datasmap.demo;
+
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -69,3 +71,4 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	}
 
 }
+*/
