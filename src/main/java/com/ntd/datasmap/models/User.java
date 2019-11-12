@@ -21,22 +21,22 @@ public class User {
 	private String password;
 
 
+	/* Constructeur par défaut */ 
+	public User() {
+		super();
+	}
 	
+	
+	/* Constructeur paramétré */
 	public User(String userName, String email, String password) {
-		this.userName = userName;
+		this.setUserName(userName);
 		this.email = email;
 		this.password = password;
 	}
 	
 	
 	
-	public String getName() {
-		return userName;
-	}
 
-	public void setName(String name) {
-		this.userName = name;
-	}
 
 	public String getEmail() {
 		return email;
@@ -52,6 +52,16 @@ public class User {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+
+	public String getUserName() {
+		return userName;
+	}
+
+
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
 
 }
