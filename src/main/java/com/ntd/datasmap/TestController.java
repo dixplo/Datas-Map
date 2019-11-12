@@ -7,8 +7,10 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.SessionAttribute;
 
 import com.ntd.datasmap.models.User;
 import com.ntd.datasmap.repositories.UserRepository;
@@ -34,7 +36,7 @@ public class TestController {
 
 	/* Dash */
 	@GetMapping("/dash")
-	public String dash() {
+	public String dash(@ModelAttribute @SessionAttribute("user") User u) {
 		return ("dash");
 	}
 
@@ -61,11 +63,10 @@ public class TestController {
 		} else {
 			for (User u : users) {
 				if (u.getPassword().equals(user.getPassword())) {
-					session.setAttribute("User", user); // On attribue l'utilisateur à la session
-					return ("dash");
+					session.setAttribute("user", user); // On attribue l'utilisateur à la session
+					return ("dash"); // -Redirection vers la page d'accueil
 				}
 			}
-
 			return ("Error"); // Si mdp incorrect
 
 		}
